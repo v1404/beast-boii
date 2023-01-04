@@ -1,0 +1,189 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(HomeApp());
+}
+
+class HomeApp extends StatefulWidget {
+  HomeApp({Key? key}) : super(key: key);
+  @override
+  State<HomeApp> createState() => _HomeAppState();
+}
+
+class _HomeAppState extends State<HomeApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              backgroundColor: Color.fromARGB(255, 17, 17, 19),
+              title: const Text('ROYAL ENFIELD'),
+            ),
+            drawer: Drawer(
+              elevation: 700,
+              child: ListView(children: [
+                UserAccountsDrawerHeader(
+                  accountName: Text('vijay'),
+                  accountEmail: Text("pvijayakrishna41@gmail.com"),
+                  currentAccountPicture:
+                      CircleAvatar(foregroundImage: AssetImage('gif/r2.gif')),
+                ),
+              ]),
+            ),
+            body: const Screen1()));
+  }
+}
+
+class Screen1 extends StatelessWidget {
+  const Screen1({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.bottomLeft,
+      child: Container(
+          child: Stack(children: [
+        Positioned(child: Image.asset('gif/vu.jpg')),
+        Positioned(
+            top: 250,
+            right: 160,
+            bottom: 80,
+            child: RichText(
+              text: TextSpan(
+                text: 'LADAKH',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Color.fromARGB(255, 229, 212, 25)),
+              ),
+            )),
+        Positioned(
+          child: Center(
+            child: Text(
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 18,
+                  color: Color.fromARGB(255, 98, 209, 242),
+                ),
+                '\n\nLucky are those who happen to know that the highest'
+                'motorable road in the world is in the lap of Himalayas,'
+                'right in the region of Ladakh. Luckier are those who’ve'
+                'ridden on those unforgettable roads! Planning a trip to'
+                'Ladakh requires one to keep aside a week at least, to reach,'
+                'cover Ladakh, and return.'),
+          ),
+        ),
+        Positioned(
+            top: 550,
+            right: 150,
+            bottom: 80,
+            child: RichText(
+              text: TextSpan(
+                text: ' Little Tibet',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Color.fromARGB(255, 185, 188, 153)),
+              ),
+            )),
+        Positioned(
+            top: 600,
+            width: 100,
+            left: 250,
+            child: ElevatedButton(
+              child: Text('NEXT'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(224, 222, 123, 80),
+                // side: BorderSide(color: Colors.yellow, width: 5),
+                textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontStyle: FontStyle.normal),
+              ),
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Screen2())),
+            ))
+      ])),
+    );
+  }
+}
+
+class Screen2 extends StatefulWidget {
+  const Screen2({Key? key}) : super(key: key);
+  @override
+  State<Screen2> createState() => _Screen2State();
+}
+
+class _Screen2State extends State<Screen2> {
+  TextEditingController textEditingController = TextEditingController();
+  @override
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Color.fromARGB(255, 34, 34, 33),
+          title: const Text(
+            ' LADAKH NIGHT STORIES  ',
+          ),
+        ),
+        body: Center(
+            child: Container(
+          alignment: Alignment.topLeft,
+          child: Stack(children: [
+            Positioned(
+              child: Image.asset('gif/r2.jpg'),
+            ),
+            Positioned(
+                top: 250,
+                right: 50,
+                bottom: 80,
+                child: RichText(
+                  text: TextSpan(
+                    text: '"So be it, it would be a Solo Ride"',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white),
+                  ),
+                )),
+            Positioned(
+              child: Center(
+                child: Text(
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 200, 205, 43),
+                  ),
+                  '\n\n\nWhen I came to know that there is a holiday on Monday, as a Corporate Employee/bike'
+                  'riding enthusiast it is my moral duty to make an amazing plan '
+                  'that would last for 3 days(Saturday, Sunday and Monday).'
+                  'Since it was last minute,'
+                  'I couldnot convince any of my fellow riding partners to join me.',
+                ),
+              ),
+            ),
+            Positioned(
+                top: 550,
+                right: 90,
+                bottom: 80,
+                child: RichText(
+                  text: TextSpan(
+                    text: '"STORIES NEVER ENDS"',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white),
+                  ),
+                )),
+          ]),
+        )),
+      ),
+    );
+  }
+}
